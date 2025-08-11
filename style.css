@@ -1,87 +1,371 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>killem - Roblox External</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-      <div class="container">
-          <div class="logo">
-               Simple placeholder logo icon 
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 4.3L20 8.5V15.5L12 19.7L4 15.5V8.5L12 4.3ZM12 13L17 10.5V15.5L12 18L7 15.5V10.5L12 13Z" fill="currentColor"/>
-              </svg>
-              <span>killem</span>
-          </div>
-          <nav>
-              <ul>
-                  <li><a href="#home-section">Home</a></li>
-                  <li><a href="#download-section">Download</a></li>
-                  <li><a href="#" onclick="alert('Feedback section coming soon! Please use our Discord for now.'); return false;">Feedback</a></li>
-                  <li><a href="#" onclick="alert('Status page coming soon! Check Discord for updates.'); return false;">Status</a></li>
-              </ul>
-          </nav>
-          <div class="button-group">
-              <a href="#" class="btn btn-affiliates" onclick="alert('Affiliates program details coming soon!'); return false;">Affiliates</a>
-              <a href="#" class="btn btn-login" onclick="alert('Login functionality coming soon!'); return false;">Login</a>
-              <a href="#" class="cart-icon" aria-label="Shopping Cart" onclick="alert('Your cart is empty!'); return false;">🛒</a>
-          </div>
-      </div>
-  </header>
+:root {
+  --color-black: #0a0a0a;
+  --color-dark-gray: #1a1a1a;
+  --color-purple: #a020f0; /* A vibrant purple */
+  --color-light-purple: #c080f0; /* Lighter shade for highlights */
+  --color-white: #ffffff;
+  --color-text-secondary: #cccccc;
+  --color-red-dark: #8b0000; /* For killem product background */
+  --color-red-light: #ff0000; /* For killem product background */
+}
 
-  <main>
-      <section id="home-section" class="hero-section">
-          <span class="badge">Leading Provider ✨</span>
-          <h1>Top products and <span class="highlight">software</span> to help you get ahead!</h1>
-          <p>Providing the best digital products and software for individuals</p>
-          <div class="search-bar">
-               Search icon 
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
-                  <circle cx="11" cy="11" r="8"></circle>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              </svg>
-              <input type="text" placeholder="Search for products...">
-          </div>
-          <div class="cta-buttons">
-              <a href="#download-section" class="btn btn-primary">Download Now 📦</a>
-              <a href="https://discord.gg/JN3dCqAW" target="_blank" class="btn btn-secondary">Support 💬</a>
-          </div>
-      </section>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      <section id="download-section" class="store-section">
-          <span class="badge">Elevate Your Experience ✨</span>
-          <h2>killem</h2>
-          <p>The ultimate Roblox external for unparalleled performance.</p>
-          <div class="product-single-card">
-              <div class="product-image killem-background"></div>
-              <h3>killem - Roblox External</h3>
-              <p>Unleash your full potential with killem, designed for seamless integration and superior performance in Roblox. Experience advanced features and a smooth, professional interface.</p>
-              <div class="price">FREE</div>
-              <a href="#" class="btn btn-primary" onclick="alert('Download link coming soon! Join our Discord for updates.'); return false;">Download killem</a>
-          </div>
-      </section>
-  </main>
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--color-black);
+  color: var(--color-white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Subtle radial gradient from the image */
+  background: radial-gradient(circle at center top, rgba(160, 32, 240, 0.1) 0%, rgba(10, 10, 10, 1) 50%);
+}
 
-  <script>
-    // Discord invite pop-up on page load
-    window.onload = function() {
-      alert('Join the Discord now! Here is the invite link: https://discord.gg/JN3dCqAW');
-    };
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+header {
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent for depth */
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* For a modern frosted glass effect */
+}
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-  </script>
-</body>
-</html>
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.logo svg {
+  margin-right: 8px;
+  color: var(--color-purple);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--color-white);
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-affiliates {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+}
+
+.btn-affiliates:hover {
+  background-color: var(--color-light-purple);
+}
+
+.btn-login {
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+}
+
+.btn-login:hover {
+  background-color: #333;
+}
+
+.cart-icon {
+  font-size: 1.5rem;
+  color: var(--color-white);
+  text-decoration: none;
+  padding: 5px;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.hero-section {
+  max-width: 800px;
+  margin-bottom: 100px;
+}
+
+.hero-section h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 40px;
+}
+
+.highlight {
+  color: var(--color-purple);
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-dark-gray);
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  font-size: 1rem;
+  padding-left: 10px;
+}
+
+.search-bar input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.search-icon {
+  color: var(--color-text-secondary);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+  padding: 12px 25px;
+  font-size: 1.1rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-light-purple);
+}
+
+.btn-secondary {
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
+  padding: 12px 25px;
+  font-size: 1.1rem;
+}
+
+.btn-secondary:hover {
+  background-color: #333;
+}
+
+.store-section {
+  max-width: 800px; /* Adjusted for single card focus */
+  width: 100%;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.store-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.store-section p {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 40px;
+}
+
+.product-single-card {
+  background-color: var(--color-dark-gray);
+  border-radius: 12px;
+  padding: 30px; /* Increased padding for a more substantial look */
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 400px; /* Constrain width for the single card */
+  margin: 0 auto; /* Center the card */
+}
+
+.product-image {
+  width: 100%;
+  height: 250px; /* Increased height for better visual */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.killem-background {
+  background-image: url("/public/images/killem-product-box.png");
+  background-color: var(--color-red-dark); /* Fallback/base color */
+}
+
+.product-single-card h3 {
+  font-size: 1.8rem; /* Larger font for single product */
+  margin-bottom: 10px;
+  color: var(--color-white);
+}
+
+.product-single-card p {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.product-single-card .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-purple);
+  margin-bottom: 20px;
+}
+
+.product-single-card .btn-primary {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  header nav ul {
+    gap: 15px;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .button-group {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .store-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo span {
+    display: none; /* Hide text logo on very small screens */
+  }
+  .logo svg {
+    margin-right: 0;
+  }
+  header {
+    padding: 10px 0;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .search-bar {
+    padding: 8px 15px;
+  }
+  .product-single-card {
+    padding: 20px;
+  }
+  .product-image {
+    height: 200px;
+  }
+}
