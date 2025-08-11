@@ -5,116 +5,134 @@
   box-sizing: border-box;
 }
 
-/* Body styles */
+/* Body style with background gradient inspired by your example */
 body {
-  font-family: 'Arial', sans-serif;
-  height: 100vh;
-  background-color: #000; /* Black background */
-  display: flex;
-  flex-direction: column;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: linear-gradient(135deg, #7b2ff5, #f107a3);
   color: #fff;
+  min-height: 100vh;
 }
 
-/* Header styles */
+/* Header styling */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background-color: transparent;
   position: sticky;
   top: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
   z-index: 999;
 }
 
 .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #9b59b6; /* Purple color */
+  color: #fff;
 }
 
 nav a {
+  margin-left: 30px;
+  color: #fff;
   text-decoration: none;
-  color: #9b59b6; /* Purple */
   font-weight: 500;
-  font-size: 16px;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #ff66ff;
 }
 
-/* Main content styles */
-main {
-  flex: 1;
+/* Hero section styling */
+.hero {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-}
-
-.content {
+  padding: 80px 20px;
+  min-height: calc(100vh - 80px);
   text-align: center;
-  max-width: 700px;
-  width: 100%;
-  padding: 40px;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 3em;
   margin-bottom: 20px;
-  color: #9b59b6; /* Purple */
+}
+
+h1 .highlight {
+  color: #ff66ff;
 }
 
 p {
   font-size: 1.2em;
   margin-bottom: 30px;
-  color: #ccc;
+  max-width: 600px;
 }
 
-.download-btn {
+.btn {
   display: inline-block;
-  padding: 15px 40px;
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #fff;
-  background-color: #9b59b6; /* Purple */
+  padding: 15px 30px;
   border-radius: 50px;
+  font-size: 1.2em;
+  font-weight: bold;
   text-decoration: none;
-  transition: background-color 0.3s, transform 0.2s;
+  margin: 10px;
+  transition: all 0.3s ease;
 }
 
-.download-btn:hover {
-  background-color: #8e44ad; /* Slightly darker purple */
+.btn.large {
+  font-size: 1.4em;
+  padding: 20px 40px;
+}
+
+.purple {
+  background-color: #ff66ff;
+  color: #fff;
+}
+.purple:hover {
+  background-color: #e055e0;
+  transform: scale(1.05);
+}
+
+.black {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.black:hover {
+  background-color: #222;
   transform: scale(1.05);
 }
 
 .status-box {
   margin-top: 40px;
   padding: 20px;
-  background-color: #222; /* Dark grey for contrast */
+  background: rgba(0,0,0,0.3);
   border-radius: 15px;
-  display: inline-block;
+  max-width: 600px;
+  width: 100%;
 }
 
 .status {
   font-size: 1.2em;
   font-weight: bold;
-  color: #00ffcc; /* Cyan for contrast */
+  color: #00ffcc;
 }
 
-.discord-box {
-  margin-top: 30px;
-}
-
-.discord-box a {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: #9b59b6;
-  color: #fff;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.discord-box a:hover {
-  background-color: #8e44ad;
-  transform: scale(1.05);
+/* Responsive adjustments */
+@media(max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+  .btn.large {
+    font-size: 1.2em;
+    padding: 15px 30px;
+  }
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav a {
+    margin: 10px 0;
+  }
 }
