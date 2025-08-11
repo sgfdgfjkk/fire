@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Killem Download</title>
+    <title>Killem - Roblox External</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,7 +17,7 @@
     </aside>
 
     <main>
-        <!-- Home Tab -->
+        <!-- Home -->
         <section class="tab-content" id="home">
             <h1>Leading Provider ✨</h1>
             <p>Top products and software to help you get ahead!</p>
@@ -25,18 +25,18 @@
             <input type="text" placeholder="Search for products..." class="search-box">
         </section>
 
-        <!-- Download Tab -->
+        <!-- Download -->
         <section class="tab-content" id="download" style="display:none;">
             <h2>Elevate Your Experience ✨</h2>
             <p>Get the latest version of <b>Killem</b>, the ultimate Roblox external.</p>
             <div class="product-box">
                 <h3>Centrum.exe</h3>
                 <p><small>8/11/2025, 12:05:02 PM | 2.8 MB</small></p>
-                <button class="action-btn">⬇ Download</button>
+                <a class="action-btn" href="Centrum.exe" download>⬇ Download</a>
             </div>
         </section>
 
-        <!-- Reviews Tab -->
+        <!-- Reviews -->
         <section class="tab-content" id="reviews" style="display:none;">
             <h2>User Reviews ⭐</h2>
             <div class="review">
@@ -49,14 +49,14 @@
             </div>
         </section>
 
-        <!-- Support Tab -->
+        <!-- Support -->
         <section class="tab-content" id="support" style="display:none;">
             <h2>Need Help? 💬</h2>
             <p>Join our community for fast support.</p>
             <a class="discord-link" href="https://discord.gg/JN3dCqAW" target="_blank">Join Discord</a>
         </section>
 
-        <!-- Status Tab -->
+        <!-- Status -->
         <section class="tab-content" id="status" style="display:none;">
             <h2>Service Status 📡</h2>
             <p>Status: <span class="status good">✅ Undetected</span></p>
@@ -65,6 +65,7 @@
     </main>
 
     <script>
+        // Simple tab switcher
         const buttons = document.querySelectorAll('.tab-btn');
         const tabs = document.querySelectorAll('.tab-content');
 
@@ -72,12 +73,6 @@
             btn.addEventListener('click', () => {
                 tabs.forEach(tab => tab.style.display = 'none');
                 document.getElementById(btn.dataset.tab).style.display = 'block';
-            });
-        });
-
-        document.querySelectorAll('.action-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                alert("Downloading Centrum.exe...");
             });
         });
     </script>
