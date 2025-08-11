@@ -1,581 +1,96 @@
-:root {
-  --color-black: #0a0a0a;
-  --color-dark-gray: #1a1a1a;
-  --color-sidebar-bg: #1e1e2e; /* Darker shade for sidebar, inspired by Gofile */
-  --color-main-bg: #282a36; /* Slightly lighter dark for main content, inspired by Gofile */
-  --color-purple: #a020f0; /* A vibrant purple */
-  --color-light-purple: #c080f0; /* Lighter shade for highlights */
-  --color-white: #ffffff;
-  --color-text-secondary: #cccccc;
-  --color-green-status: #28a745; /* For 'Undetected' status */
-  --color-blue-button: #4a90e2; /* For 'Add Account' button, inspired by Gofile */
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: "Inter", sans-serif;
-  background: var(--color-black);
-  color: var(--color-white);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-.app-container {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
-}
-
-/* Sidebar Styles */
-.sidebar {
-  width: 250px;
-  background-color: var(--color-sidebar-bg);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.05);
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  transition: transform 0.3s ease-in-out;
-}
-
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-purple);
-  text-decoration: none;
-}
-
-.logo svg {
-  margin-right: 8px;
-  color: var(--color-purple);
-}
-
-.menu-toggle {
-  display: none; /* Hidden on desktop */
-  background: none;
-  border: none;
-  color: var(--color-white);
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.user-profile {
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 10px 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.user-profile:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.user-profile .avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: var(--color-purple);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
-  font-size: 1rem;
-}
-
-.user-profile .username {
-  flex-grow: 1;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.user-profile .fa-chevron-down {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
-}
-
-.btn-add-account {
-  background-color: var(--color-blue-button);
-  color: var(--color-white);
-  padding: 10px 15px;
-  border-radius: 8px;
-  font-weight: 600;
-  width: 100%;
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: background-color 0.2s ease;
-}
-
-.btn-add-account:hover {
-  background-color: #5a9ee8;
-}
-
-.sidebar-nav ul {
-  list-style: none;
-  margin-bottom: 30px;
-}
-
-.sidebar-nav li {
-  margin-bottom: 10px;
-}
-
-.sidebar-nav a {
-  display: flex;
-  align-items: center;
-  padding: 10px 15px;
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 8px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.sidebar-nav a:hover,
-.sidebar-nav a.active {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--color-white);
-}
-
-.sidebar-nav a i {
-  margin-right: 10px;
-  font-size: 1.1rem;
-}
-
-.social-link {
-  margin-top: auto; /* Pushes it to the bottom */
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.social-link a {
-  display: flex;
-  align-items: center;
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.social-link a:hover {
-  color: var(--color-white);
-}
-
-.social-link a i {
-  margin-right: 10px;
-  font-size: 1.2rem;
-}
-
-/* Main Content Styles */
-.main-content {
-  flex-grow: 1;
-  background-color: var(--color-main-bg);
-  padding: 40px;
-  overflow-y: auto;
-}
-
-.hero-section {
-  max-width: 800px;
-  margin: 0 auto 100px auto;
-  text-align: center;
-}
-
-.hero-section h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.hero-section p {
-  font-size: 1.1rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 40px;
-}
-
-.highlight {
-  color: var(--color-purple);
-}
-
-.badge {
-  display: inline-block;
-  background-color: var(--color-dark-gray);
-  color: var(--color-white);
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  background-color: var(--color-dark-gray);
-  border-radius: 10px;
-  padding: 10px 20px;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto 30px auto;
-}
-
-.search-bar input {
-  flex-grow: 1;
-  background: none;
-  border: none;
-  outline: none;
-  color: var(--color-white);
-  font-size: 1rem;
-  padding-left: 10px;
-}
-
-.search-bar input::placeholder {
-  color: var(--color-text-secondary);
-}
-
-.search-icon {
-  color: var(--color-text-secondary);
-}
-
-.cta-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btn-primary {
-  background-color: var(--color-purple);
-  color: var(--color-white);
-  padding: 12px 25px;
-  font-size: 1.1rem;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-light-purple);
-}
-
-.btn-secondary {
-  background-color: var(--color-dark-gray);
-  color: var(--color-white);
-  padding: 12px 25px;
-  font-size: 1.1rem;
-}
-
-.btn-secondary:hover {
-  background-color: #333;
-}
-
-/* Download Section Specific Styles */
-.download-section {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  padding-bottom: 50px;
-}
-
-.download-section h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 15px;
-}
-
-.download-section p {
-  font-size: 1rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 40px;
-}
-
-.file-download-card {
-  background-color: var(--color-sidebar-bg); /* Use sidebar color for card */
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.file-icon {
-  font-size: 2rem;
-  color: var(--color-purple);
-  margin-right: 15px;
-}
-
-.file-info {
-  flex-grow: 1;
-  text-align: left;
-}
-
-.file-name {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--color-white);
-  margin-bottom: 5px;
-}
-
-.file-details {
-  font-size: 0.85rem;
-  color: var(--color-text-secondary);
-}
-
-.btn-download {
-  background-color: var(--color-purple);
-  color: var(--color-white);
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-}
-
-.btn-download:hover {
-  background-color: var(--color-light-purple);
-}
-
-.report-abuse {
-  text-align: right;
-}
-
-.btn-report {
-  background: none;
-  border: 1px solid var(--color-text-secondary);
-  color: var(--color-text-secondary);
-  padding: 8px 15px;
-  font-size: 0.9rem;
-  border-radius: 8px;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.btn-report:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--color-white);
-}
-
-/* Feedback Page Specific Styles */
-.feedback-form-container {
-  background-color: var(--color-sidebar-bg);
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 600px;
-  margin: 40px auto 0 auto;
-  text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 1rem;
-  color: var(--color-white);
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #333;
-  border-radius: 8px;
-  background-color: #2a2a2a;
-  color: var(--color-white);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group textarea:focus {
-  border-color: var(--color-purple);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.feedback-form .btn-primary {
-  width: auto;
-  padding: 12px 30px;
-  font-size: 1.1rem;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Status Page Specific Styles */
-.status-box {
-  background-color: var(--color-sidebar-bg);
-  border-radius: 12px;
-  padding: 30px;
-  max-width: 500px;
-  margin: 40px auto 0 auto;
-  text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.status-message {
-  font-size: 1.2rem;
-  color: var(--color-white);
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.status-indicator {
-  font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.status-ok {
-  background-color: var(--color-green-status);
-  color: var(--color-white);
-}
-
-.status-last-updated {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
-  margin-top: 20px;
-  text-align: center;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .app-container {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    transform: translateX(-100%);
-    z-index: 1000;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  }
-
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  .sidebar-header {
-    justify-content: space-between;
-  }
-
-  .menu-toggle {
-    display: block; /* Show on mobile */
-  }
-
-  .main-content {
-    padding: 20px;
-    margin-top: 60px; /* Space for fixed header if needed */
-  }
-
-  .hero-section h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-section p {
-    font-size: 1rem;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-  }
-
-  .download-section h2 {
-    font-size: 2rem;
-  }
-
-  .file-download-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  .btn-download {
-    width: 100%;
-  }
-
-  .report-abuse {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0d0d0d;
+    color: white;
+}
+
+header {
+    background-color: #1a1a1a;
+    padding: 1rem;
     text-align: center;
-  }
 }
 
-@media (max-width: 480px) {
-  .logo span {
-    display: none;
-  }
-  .logo svg {
-    margin-right: 0;
-  }
-  .sidebar {
-    width: 200px;
-  }
-  .hero-section h1 {
-    font-size: 2rem;
-  }
-  .search-bar {
-    padding: 8px 15px;
-  }
-  .feedback-form-container,
-  .status-box {
-    padding: 15px;
-  }
+header h1 {
+    margin: 0;
+    color: #a64dff;
+}
+
+nav {
+    margin-top: 0.5rem;
+}
+
+nav button {
+    background-color: #a64dff;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+nav button:hover {
+    background-color: #8a3fcc;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.upload-box, .info-box, .downloads-box {
+    background-color: #1a1a1a;
+    border: 2px solid #a64dff;
+    padding: 1rem;
+    margin: 1rem;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.action-btn {
+    margin-top: 0.5rem;
+    background-color: #a64dff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background-color: #8a3fcc;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: #262626;
+    padding: 0.5rem;
+    margin: 0.3rem 0;
+    border-radius: 5px;
+}
+
+.file-item button {
+    background-color: #a64dff;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.file-item button:hover {
+    background-color: #8a3fcc;
+}
+
+footer {
+    background-color: #1a1a1a;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
 }
