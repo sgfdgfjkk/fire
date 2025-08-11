@@ -1,25 +1,24 @@
-/* Reset some default styles */
+/* Reset and base styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Body styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #fff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
     line-height: 1.6;
 }
 
-/* Header styles */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
-    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -28,111 +27,79 @@ header {
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #ff66ff;
+    color: #4CAF50;
 }
 
 nav a {
-    margin: 0 15px;
+    margin-left: 25px;
     text-decoration: none;
-    color: #fff;
+    color: #555;
     font-weight: 500;
+    font-size: 16px;
     transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ff66ff;
+    color: #4CAF50;
 }
 
-.auth-buttons button {
-    margin-left: 10px;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s, color 0.3s;
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding: 40px 20px;
 }
 
-.affiliates {
-    background-color: #ff66ff;
-    color: #fff;
-}
-
-.affiliates:hover {
-    background-color: #e055e0;
-}
-
-.login {
-    background-color: #000;
-    color: #fff;
-}
-
-.login:hover {
-    background-color: #222;
-}
-
-.cart {
-    background-color: #000;
-    color: #fff;
-    font-size: 18px;
-    padding: 8px 12px;
-}
-
-.cart:hover {
-    background-color: #222;
-}
-
-/* Intro section styles */
-section.intro {
-    padding: 50px 20px;
+.hero {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     text-align: center;
 }
 
 h1 {
     font-size: 2.5em;
-    margin-bottom: 15px;
-}
-
-.highlight {
-    color: #ff66ff;
+    margin-bottom: 20px;
+    color: #222;
 }
 
 p {
-    margin-bottom: 30px;
     font-size: 1.2em;
-}
-
-.download-section {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: #555;
 }
 
 .download-btn {
-    background-color: #ff66ff;
-    color: #fff;
+    display: inline-block;
     padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 25px;
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    border-radius: 50px;
+    text-decoration: none;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 .download-btn:hover {
-    background-color: #e055e0;
+    background-color: #45a049;
     transform: scale(1.05);
 }
 
-/* Status box styles */
 .status-box {
-    background-color: #222;
+    margin-top: 30px;
     padding: 20px;
-    border-radius: 10px;
+    background-color: #e0f7fa;
+    border-radius: 12px;
     display: inline-block;
-    max-width: 600px;
 }
 
 .status {
     font-size: 1.2em;
     font-weight: bold;
-    color: #00ffcc;
+    color: #00796b;
 }
