@@ -25,9 +25,9 @@
               </ul>
           </nav>
           <div class="button-group">
-              <a href="#" class="btn btn-affiliates" data-modal-message="Affiliates program details coming soon!">Affiliates</a>
-              <a href="#" class="btn btn-login" data-modal-message="Login functionality coming soon!">Login</a>
-              <a href="#" class="cart-icon" aria-label="Shopping Cart" data-modal-message="Your cart is empty!">🛒</a>
+              <a href="#" class="btn btn-affiliates" data-modal-type="affiliates">Affiliates</a>
+              <a href="#" class="btn btn-login" data-modal-type="login">Login</a>
+              <a href="#" class="cart-icon" aria-label="Shopping Cart" data-modal-type="cart">🛒</a>
           </div>
       </div>
   </header>
@@ -56,25 +56,88 @@
       </section>
   </main>
 
-  <!-- Custom Modal GUI (copied from index.html for consistency) -->
+   Custom Modal GUI (copied from index.html for consistency) 
   <div id="custom-modal" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
-      <p id="modal-message"></p>
+      <div class="modal-header">
+        <img src="/public/images/killem-logo-modal.png" alt="killem Logo" class="modal-logo">
+        <span class="modal-badge">Welcome</span>
+      </div>
+      <div class="modal-body">
+        <h3 id="modal-title">Welcome to killem Services!</h3>
+        <p id="modal-text">Your trusted partner for premium solutions, tailored support, and unmatched reliability. Whether you're here to grow, streamline, or elevate your experience, our team is committed to delivering excellence every step of the way.</p>
+        <div class="discord-link-container">
+          <span id="discord-link-text">discord.gg/JN3dCqAW</span>
+          <button class="copy-button" data-copy-target="discord-link-text">COPY <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 0 0 1-2-2V4a2 0 0 1 2-2h9a2 0 0 1 2 2v1"></path></svg></button>
+        </div>
+        <p class="join-discord-prompt">Join our discord for support and much more!</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="modal-okay-button">Okay</button>
+        <button class="btn btn-secondary" id="modal-dismiss-button">Dismiss</button>
+      </div>
     </div>
   </div>
 
   <script>
     const modal = document.getElementById('custom-modal');
-    const modalMessage = document.getElementById('modal-message');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
     const closeButton = document.querySelector('.close-button');
+    const modalOkayButton = document.getElementById('modal-okay-button');
+    const modalDismissButton = document.getElementById('modal-dismiss-button');
+    const discordLinkText = document.getElementById('discord-link-text');
+    const copyButton = document.querySelector('.copy-button');
 
-    function showModal(message) {
-      modalMessage.innerHTML = message;
-      modal.style.display = 'block';
+    function showModal(type = 'welcome') {
+      // Reset modal content for dynamic updates
+      modalTitle.textContent = 'Welcome to killem Services!';
+      modalText.innerHTML = 'Your trusted partner for premium solutions, tailored support, and unmatched reliability. Whether you\'re here to grow, streamline, or elevate your experience, our team is committed to delivering excellence every step of the way.';
+      discordLinkText.textContent = 'discord.gg/JN3dCqAW';
+      document.querySelector('.discord-link-container').style.display = 'flex';
+      document.querySelector('.join-discord-prompt').style.display = 'block';
+      modalOkayButton.style.display = 'inline-block';
+      modalDismissButton.style.display = 'inline-block';
+
+      if (type === 'affiliates') {
+        modalTitle.textContent = 'Affiliates Program';
+        modalText.textContent = 'Affiliates program details coming soon! Stay tuned for opportunities to partner with us.';
+        document.querySelector('.discord-link-container').style.display = 'none';
+        document.querySelector('.join-discord-prompt').style.display = 'none';
+        modalOkayButton.style.display = 'none';
+      } else if (type === 'login') {
+        modalTitle.textContent = 'Login';
+        modalText.textContent = 'Login functionality coming soon! We are working hard to bring you secure access.';
+        document.querySelector('.discord-link-container').style.display = 'none';
+        document.querySelector('.join-discord-prompt').style.display = 'none';
+        modalOkayButton.style.display = 'none';
+      } else if (type === 'cart') {
+        modalTitle.textContent = 'Shopping Cart';
+        modalText.textContent = 'Your cart is currently empty. Browse our products to add items!';
+        document.querySelector('.discord-link-container').style.display = 'none';
+        document.querySelector('.join-discord-prompt').style.display = 'none';
+        modalOkayButton.style.display = 'none';
+      } else if (type.startsWith('product-')) {
+        modalTitle.textContent = 'Product Information';
+        modalText.textContent = 'Details for this product are coming soon! Please check back later or join our Discord for updates.';
+        document.querySelector('.discord-link-container').style.display = 'none';
+        document.querySelector('.join-discord-prompt').style.display = 'none';
+        modalOkayButton.style.display = 'none';
+      }
+
+      modal.style.display = 'flex'; // Use flex to center
     }
 
     closeButton.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    modalOkayButton.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    modalDismissButton.onclick = function() {
       modal.style.display = 'none';
     }
 
@@ -84,18 +147,23 @@
       }
     }
 
-    // Handle modal triggers for buttons
-    document.querySelectorAll('[data-modal-message]').forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.preventDefault();
-        showModal(this.getAttribute('data-modal-message'));
+    // Copy Discord link to clipboard
+    copyButton.addEventListener('click', function() {
+      const textToCopy = discordLinkText.textContent;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        copyButton.textContent = 'COPIED!';
+        setTimeout(() => {
+          copyButton.innerHTML = 'COPY <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 0 0 1-2-2V4a2 0 0 1 2-2h9a2 0 0 1 2 2v1"></path></svg>';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
       });
     });
 
     // Simple form submission alert
     document.querySelector('.feedback-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        showModal('Thank you for your feedback!');
+        showModal('Thank you for your feedback! We appreciate it.');
         this.reset(); // Clear the form
     });
   </script>
