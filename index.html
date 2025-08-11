@@ -25,9 +25,9 @@
               </ul>
           </nav>
           <div class="button-group">
-              <a href="#" class="btn btn-affiliates" data-modal-message="Affiliates program details coming soon!">Affiliates</a>
-              <a href="#" class="btn btn-login" data-modal-message="Login functionality coming soon!">Login</a>
-              <a href="#" class="cart-icon" aria-label="Shopping Cart" data-modal-message="Your cart is empty!">🛒</a>
+              <a href="#" class="btn btn-affiliates" data-modal-type="affiliates">Affiliates</a>
+              <a href="#" class="btn btn-login" data-modal-type="login">Login</a>
+              <a href="#" class="cart-icon" aria-label="Shopping Cart" data-modal-type="cart">🛒</a>
           </div>
       </div>
   </header>
@@ -52,37 +52,117 @@
 
       <section id="download-section" class="store-section">
           <span class="badge">Elevate Your Experience ✨</span>
-          <h2>killem</h2>
-          <p>The ultimate Roblox external for unparalleled performance.</p>
-          <div class="product-single-card">
-              <div class="product-image killem-background"></div>
-              <h3>killem - Roblox External</h3>
-              <p>Unleash your full potential with killem, designed for seamless integration and superior performance in Roblox. Experience advanced features and a smooth, professional interface.</p>
-              <div class="price">FREE</div>
-              <a href="/Centrum.exe" class="btn btn-primary" download>Download killem</a>
+          <h2>Our Products</h2>
+          <p>Browse our curated selection and offers, covering everything you need.</p>
+          <div class="product-grid">
+              <div class="product-card">
+                  <span class="badge best-seller">Best Seller</span>
+                  <div class="product-image"></div>
+                  <h3>killem - Roblox External</h3>
+                  <p>Unleash your full potential with killem, designed for seamless integration and superior performance in Roblox.</p>
+                  <div class="price">FREE</div>
+                  <a href="/Centrum.exe" class="btn btn-primary" download>Download Now</a>
+              </div>
+              <div class="product-card">
+                  <div class="product-image"></div>
+                  <h3>Product Name 2</h3>
+                  <p>A brief description of another amazing product we offer.</p>
+                  <div class="price">$XX.XX</div>
+                  <button class="btn btn-primary" data-modal-type="product-2">Buy Now</button>
+              </div>
+              <div class="product-card">
+                  <div class="product-image"></div>
+                  <h3>Product Name 3</h3>
+                  <p>Discover more features and benefits of this essential software.</p>
+                  <div class="price">$XX.XX</div>
+                  <button class="btn btn-primary" data-modal-type="product-3">Buy Now</button>
+              </div>
           </div>
       </section>
   </main>
 
-  <!-- Custom Modal GUI -->
+   Custom Modal GUI 
   <div id="custom-modal" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
-      <p id="modal-message"></p>
+      <div class="modal-header">
+        <img src="/public/images/killem-logo-modal.png" alt="killem Logo" class="modal-logo">
+        <span class="modal-badge">Welcome</span>
+      </div>
+      <div class="modal-body">
+        <h3 id="modal-title">Welcome to killem Services!</h3>
+        <p id="modal-text">Your trusted partner for premium solutions, tailored support, and unmatched reliability. Whether you're here to grow, streamline, or elevate your experience, our team is committed to delivering excellence every step of the way.</p>
+        <div class="discord-link-container">
+          <span id="discord-link-text">discord.gg/JN3dCqAW</span>
+          <button class="copy-button" data-copy-target="discord-link-text">COPY <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+        </div>
+        <p class="join-discord-prompt">Join our discord for support and much more!</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="modal-okay-button">Okay</button>
+        <button class="btn btn-secondary" id="modal-dismiss-button">Dismiss</button>
+      </div>
     </div>
   </div>
 
   <script>
     const modal = document.getElementById('custom-modal');
-    const modalMessage = document.getElementById('modal-message');
+    const modalTitle = document.getElementById('modal-title');
+    const modalText = document.getElementById('modal-text');
     const closeButton = document.querySelector('.close-button');
+    const modalOkayButton = document.getElementById('modal-okay-button');
+    const modalDismissButton = document.getElementById('modal-dismiss-button');
+    const discordLinkText = document.getElementById('discord-link-text');
+    const copyButton = document.querySelector('.copy-button');
 
-    function showModal(message) {
-      modalMessage.innerHTML = message;
-      modal.style.display = 'block';
+    function showModal(type = 'welcome') {
+      // Reset modal content for dynamic updates
+      modalTitle.textContent = 'Welcome to killem Services!';
+      modalText.innerHTML = 'Your trusted partner for premium solutions, tailored support, and unmatched reliability. Whether you\'re here to grow, streamline, or elevate your experience, our team is committed to delivering excellence every step of the way.';
+      discordLinkText.textContent = 'discord.gg/JN3dCqAW';
+      document.querySelector('.discord-link-container').style.display = 'flex';
+      document.querySelector('.join-discord-prompt').style.display = 'block';
+      modalOkayButton.style.display = 'inline-block';
+      modalDismissButton.style.display = 'inline-block';
+
+      if (type === 'affiliates') {
+        modalTitle.textContent = 'Affiliates Program';
+        modalText.textContent = 'Affiliates program details coming soon! Stay tuned for opportunities to partner with us.';
+        document.querySelector('.discord-link-container').style.display = 'none';
+        document.querySelector('.join-discord-prompt').style.display = 'none';
+        modalOkayButton.style.display = 'none';
+      } else if (type === 'login') {
+        modalTitle.textContent = 'Login';
+        modalText.textContent = 'Login functionality coming soon! We are working hard to bring you secure access.';
+        document.querySelector('.discord-link-container').style.display = 'none';
+        document.querySelector('.join-discord-prompt').style.display = 'none';
+        modalOkayButton.style.display = 'none';
+      } else if (type === 'cart') {
+        modalTitle.textContent = 'Shopping Cart';
+        modalText.textContent = 'Your cart is currently empty. Browse our products to add items!';
+        document.querySelector('.discord-link-container').style.display = 'none';
+        document.querySelector('.join-discord-prompt').style.display = 'none';
+        modalOkayButton.style.display = 'none';
+      } else if (type.startsWith('product-')) {
+        modalTitle.textContent = 'Product Information';
+        modalText.textContent = 'Details for this product are coming soon! Please check back later or join our Discord for updates.';
+        document.querySelector('.discord-link-container').style.display = 'none';
+        document.querySelector('.join-discord-prompt').style.display = 'none';
+        modalOkayButton.style.display = 'none';
+      }
+
+      modal.style.display = 'flex'; // Use flex to center
     }
 
     closeButton.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    modalOkayButton.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    modalDismissButton.onclick = function() {
       modal.style.display = 'none';
     }
 
@@ -92,16 +172,29 @@
       }
     }
 
-    // Discord invite modal on page load
+    // Copy Discord link to clipboard
+    copyButton.addEventListener('click', function() {
+      const textToCopy = discordLinkText.textContent;
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        copyButton.textContent = 'COPIED!';
+        setTimeout(() => {
+          copyButton.innerHTML = 'COPY <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+        }, 2000);
+      }).catch(err => {
+        console.error('Failed to copy text: ', err);
+      });
+    });
+
+    // Initial welcome modal on page load
     window.onload = function() {
-      showModal('Join the Discord now! Here is the invite link: <a href="https://discord.gg/JN3dCqAW" target="_blank" style="color: var(--color-purple); text-decoration: underline;">https://discord.gg/JN3dCqAW</a>');
+      showModal('welcome');
     };
 
-    // Handle modal triggers for buttons
-    document.querySelectorAll('[data-modal-message]').forEach(button => {
+    // Handle modal triggers for buttons using data-modal-type
+    document.querySelectorAll('[data-modal-type]').forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
-        showModal(this.getAttribute('data-modal-message'));
+        showModal(this.getAttribute('data-modal-type'));
       });
     });
 
