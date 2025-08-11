@@ -1,80 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Killem - Roblox External</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Killem Downloads</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <aside class="sidebar">
-        <h2>Menu</h2>
-        <button class="tab-btn" data-tab="home">🏠 Home</button>
-        <button class="tab-btn" data-tab="download">📦 Download</button>
-        <button class="tab-btn" data-tab="reviews">⭐ Reviews</button>
-        <button class="tab-btn" data-tab="support">💬 Support</button>
-        <button class="tab-btn" data-tab="status">📡 Status</button>
-    </aside>
+  <aside class="sidebar">
+    <h2>Imperium Services</h2>
+    <nav>
+      <button class="tab-btn" data-tab="home">Home</button>
+      <button class="tab-btn" data-tab="download">Download</button>
+      <button class="tab-btn" data-tab="reviews">Reviews</button>
+      <button class="tab-btn" data-tab="support">Support</button>
+      <button class="tab-btn" data-tab="status">Status</button>
+    </nav>
+  </aside>
 
-    <main>
-        <!-- Home -->
-        <section class="tab-content" id="home">
-            <h1>Leading Provider ✨</h1>
-            <p>Top products and software to help you get ahead!</p>
-            <p>Providing the best digital products and software for individuals.</p>
-            <input type="text" placeholder="Search for products..." class="search-box">
-        </section>
+  <main>
+    <section class="tab" id="home">
+      <h1>Leading Provider ✨</h1>
+      <p>Top products and software to help you get ahead!</p>
+      <p>Providing the best digital tools for individuals.</p>
+      <input type="text" class="search" placeholder="Search for products..."/>
+    </section>
 
-        <!-- Download -->
-        <section class="tab-content" id="download" style="display:none;">
-            <h2>Elevate Your Experience ✨</h2>
-            <p>Get the latest version of <b>Killem</b>, the ultimate Roblox external.</p>
-            <div class="product-box">
-                <h3>Centrum.exe</h3>
-                <p><small>8/11/2025, 12:05:02 PM | 2.8 MB</small></p>
-                <a class="action-btn" href="Centrum.exe" download>⬇ Download</a>
-            </div>
-        </section>
+    <section class="tab" id="download" style="display:none;">
+      <h2>Elevate Your Experience ✨</h2>
+      <div class="product">
+        <h3>Centrum.exe</h3>
+        <p><small>8/11/2025 • 2.8 MB</small></p>
+        <a href="Centrum.exe" download class="btn">⬇ Download</a>
+      </div>
+    </section>
 
-        <!-- Reviews -->
-        <section class="tab-content" id="reviews" style="display:none;">
-            <h2>User Reviews ⭐</h2>
-            <div class="review">
-                <p>"Fast, easy, and reliable. 5/5 stars!"</p>
-                <small>- Alex</small>
-            </div>
-            <div class="review">
-                <p>"Best Roblox tool out there!"</p>
-                <small>- Jamie</small>
-            </div>
-        </section>
+    <section class="tab" id="reviews" style="display:none;">
+      <h2>User Reviews ⭐</h2>
+      <div class="review"><p>“Fast, easy, and reliable.”</p><small>– Alex</small></div>
+      <div class="review"><p>“Best Roblox tool out there!”</p><small>– Jamie</small></div>
+    </section>
 
-        <!-- Support -->
-        <section class="tab-content" id="support" style="display:none;">
-            <h2>Need Help? 💬</h2>
-            <p>Join our community for fast support.</p>
-            <a class="discord-link" href="https://discord.gg/JN3dCqAW" target="_blank">Join Discord</a>
-        </section>
+    <section class="tab" id="support" style="display:none;">
+      <h2>Support</h2>
+      <p>Need help? Join our community:</p>
+      <a class="discord-link" href="https://discord.gg/JN3dCqAW" target="_blank">Discord</a>
+    </section>
 
-        <!-- Status -->
-        <section class="tab-content" id="status" style="display:none;">
-            <h2>Service Status 📡</h2>
-            <p>Status: <span class="status good">✅ Undetected</span></p>
-            <p>Currently working on latest Roblox version update.</p>
-        </section>
-    </main>
+    <section class="tab" id="status" style="display:none;">
+      <h2>Status</h2>
+      <p>Status: <span class="status good">✅ Undetected</span></p>
+      <p>Working on latest Roblox version update.</p>
+    </section>
+  </main>
 
-    <script>
-        // Simple tab switcher
-        const buttons = document.querySelectorAll('.tab-btn');
-        const tabs = document.querySelectorAll('.tab-content');
-
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                tabs.forEach(tab => tab.style.display = 'none');
-                document.getElementById(btn.dataset.tab).style.display = 'block';
-            });
-        });
-    </script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(s => s.style.display = 'none');
+        document.getElementById(btn.dataset.tab).style.display = 'block';
+      });
+    });
+  </script>
 </body>
 </html>
