@@ -5,8 +5,6 @@
   --color-light-purple: #c080f0; /* Lighter shade for highlights */
   --color-white: #ffffff;
   --color-text-secondary: #cccccc;
-  --color-red-dark: #8b0000; /* For killem product background */
-  --color-red-light: #ff0000; /* For killem product background */
   --color-green-status: #28a745; /* For 'Undetected' status */
 }
 
@@ -233,7 +231,7 @@ main {
 }
 
 .store-section {
-  max-width: 800px; /* Adjusted for single card focus */
+  max-width: 1200px; /* Reverted to wider for product grid */
   width: 100%;
   margin-top: 50px;
   padding-bottom: 50px;
@@ -251,61 +249,72 @@ main {
   margin-bottom: 40px;
 }
 
-.product-single-card {
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding-bottom: 50px;
+}
+
+.product-card {
   background-color: var(--color-dark-gray);
   border-radius: 12px;
-  padding: 30px; /* Increased padding for a more substantial look */
+  padding: 20px;
   text-align: left;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 400px; /* Constrain width for the single card */
-  margin: 0 auto; /* Center the card */
+}
+
+.product-card .badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgba(0, 128, 0, 0.7); /* Green for best seller */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 1;
 }
 
 .product-image {
   width: 100%;
-  height: 250px; /* Increased height for better visual */
-  background-size: contain; /* Use 'contain' to show full image without cropping */
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 150px; /* Placeholder height */
+  background: linear-gradient(45deg, var(--color-purple), #4a0080); /* Purple gradient for placeholder */
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   position: relative;
   overflow: hidden;
 }
 
-.killem-background {
-  background-image: url("/public/images/killem-product-box.png");
-  background-color: var(--color-red-dark); /* Fallback/base color */
-}
-
-.product-single-card h3 {
-  font-size: 1.8rem; /* Larger font for single product */
+.product-card h3 {
+  font-size: 1.3rem;
   margin-bottom: 10px;
   color: var(--color-white);
 }
 
-.product-single-card p {
-  font-size: 1rem;
+.product-card p {
+  font-size: 0.9rem;
   color: var(--color-text-secondary);
-  margin-bottom: 20px;
-  flex-grow: 1;
+  margin-bottom: 15px;
+  flex-grow: 1; /* Allows description to take available space */
 }
 
-.product-single-card .price {
-  font-size: 1.5rem;
+.product-card .price {
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--color-purple);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.product-single-card .btn-primary {
+.product-card .btn-primary {
   width: 100%;
-  padding: 12px 15px;
-  font-size: 1.1rem;
+  padding: 10px 15px;
+  font-size: 1rem;
 }
 
 /* Custom Modal Styles */
@@ -320,21 +329,22 @@ main {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
   backdrop-filter: blur(5px); /* Frosted glass effect */
-  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .modal-content {
   background-color: var(--color-dark-gray);
-  margin: auto;
-  padding: 30px;
+  padding: 20px;
   border-radius: 12px;
-  width: 80%;
-  max-width: 500px;
+  width: 90%;
+  max-width: 450px; /* Adjusted to match image more closely */
   position: relative;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .close-button {
@@ -354,10 +364,98 @@ main {
   text-decoration: none;
 }
 
-.modal-content p {
-  font-size: 1.1rem;
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-logo {
+  width: 48px; /* Adjust size as needed */
+  height: 48px;
+  object-fit: contain;
+}
+
+.modal-badge {
+  display: inline-block;
+  background-color: #333; /* Darker gray for badge */
+  color: var(--color-white);
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-body h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--color-white);
   margin-bottom: 0;
+}
+
+.modal-body p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.discord-link-container {
+  background-color: #2a2a2a; /* Slightly lighter dark gray */
+  border-radius: 8px;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-purple);
+  word-break: break-all; /* Ensure long links wrap */
+}
+
+.copy-button {
+  background-color: var(--color-purple);
+  color: var(--color-white);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.copy-button:hover {
+  background-color: var(--color-light-purple);
+}
+
+.join-discord-prompt {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-top: -10px; /* Pull closer to link */
+}
+
+.modal-footer {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.modal-footer .btn {
+  padding: 10px 25px;
+  font-size: 1rem;
 }
 
 /* Feedback Form Styles */
@@ -496,6 +594,10 @@ main {
   .store-section h2 {
     font-size: 2rem;
   }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Stack cards on small screens */
+  }
 }
 
 @media (max-width: 480px) {
@@ -518,18 +620,33 @@ main {
   .search-bar {
     padding: 8px 15px;
   }
-  .product-single-card {
-    padding: 20px;
+  .product-card {
+    padding: 15px;
   }
   .product-image {
-    height: 200px;
+    height: 120px;
   }
   .modal-content {
     width: 95%;
-    padding: 20px;
+    padding: 15px;
+  }
+  .modal-body h3 {
+    font-size: 1.3rem;
+  }
+  .modal-body p {
+    font-size: 0.9rem;
+  }
+  .discord-link-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .copy-button {
+    width: 100%;
+    justify-content: center;
   }
   .feedback-form-container,
   .status-box {
-    padding: 20px;
+    padding: 15px;
   }
 }
