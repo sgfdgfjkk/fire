@@ -1,110 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>killem - Roblox External</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Share</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="app-container">
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <div class="logo">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 4.3L20 8.5V15.5L12 19.7L4 15.5V8.5L12 4.3ZM12 13L17 10.5V15.5L12 18L7 15.5V10.5L12 13Z" fill="currentColor"/>
-          </svg>
-          <span>killem</span>
-        </div>
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-      <div class="user-profile">
-        <div class="avatar">
-          <i class="fas fa-user-circle"></i>
-        </div>
-        <span class="username">guest4650406363</span>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <button class="btn btn-add-account" onclick="alert('Add Account functionality coming soon!');">
-        <i class="fas fa-plus"></i> Add Account
-      </button>
-      <nav class="sidebar-nav">
-        <ul>
-          <li><a href="#home-section"><i class="fas fa-home"></i> Home</a></li>
-          <li><a href="#download-section"><i class="fas fa-download"></i> Download</a></li>
-          <li><a href="#" onclick="alert('Premium features coming soon!'); return false;"><i class="fas fa-crown"></i> Premium</a></li>
-          <li><a href="#" onclick="alert('API documentation coming soon!'); return false;"><i class="fas fa-cogs"></i> API</a></li>
-          <li><a href="feedback.html"><i class="fas fa-comment-dots"></i> Feedback</a></li>
-          <li><a href="status.html"><i class="fas fa-info-circle"></i> Status</a></li>
-          <li><a href="#" onclick="alert('Contact us via Discord for now!'); return false;"><i class="fas fa-envelope"></i> Contact</a></li>
-        </ul>
-      </nav>
-      <div class="social-link">
-        <a href="https://discord.gg/JN3dCqAW" target="_blank"><i class="fab fa-discord"></i> @killem_external</a>
-      </div>
-    </aside>
+    <header>
+        <h1>FileShare</h1>
+        <nav>
+            <button>Home</button>
+            <button>Upload</button>
+            <button>My Files</button>
+            <button>Contact</button>
+        </nav>
+    </header>
 
-    <main class="main-content">
-      <section id="home-section" class="hero-section">
-        <span class="badge">Leading Provider ✨</span>
-        <h1>Top products and <span class="highlight">software</span> to help you get ahead!</h1>
-        <p>Providing the best digital products and software for individuals</p>
-        <div class="search-bar">
-          <i class="fas fa-search search-icon"></i>
-          <input type="text" placeholder="Search for products...">
-        </div>
-        <div class="cta-buttons">
-          <a href="#download-section" class="btn btn-primary">Download Now 📦</a>
-          <a href="https://discord.gg/JN3dCqAW" target="_blank" class="btn btn-secondary">Support 💬</a>
-        </div>
-      </section>
+    <main>
+        <section class="upload-box">
+            <h2>Upload Your Files</h2>
+            <p>Select files and share them instantly.</p>
+            <input type="file" multiple>
+            <button class="action-btn">Upload</button>
+        </section>
 
-      <section id="download-section" class="download-section">
-        <span class="badge">Elevate Your Experience ✨</span>
-        <h2>Download killem</h2>
-        <p>Get the latest version of killem, the ultimate Roblox external.</p>
-        <div class="file-download-card">
-          <div class="file-icon">
-            <i class="fas fa-file-alt"></i>
-          </div>
-          <div class="file-info">
-            <span class="file-name">Centrum.exe</span>
-            <span class="file-details">8/11/2025, 12:05:02 PM | 2.8 MB</span>
-          </div>
-          <a href="https://gofile.io/d/8oSRw4" target="_blank" class="btn btn-download">
-            <i class="fas fa-download"></i> Download
-          </a>
-        </div>
-        <div class="report-abuse">
-          <button class="btn btn-report" onclick="alert('Report Abuse functionality coming soon!');">
-            <i class="fas fa-flag"></i> Report Abuse
-          </button>
-        </div>
-      </section>
+        <section class="info-box">
+            <h2>How It Works</h2>
+            <p>Upload your files, get a link, and share it anywhere. 
+               Fast, secure, and free.</p>
+        </section>
+
+        <section class="downloads-box">
+            <h2>Recent Downloads</h2>
+            <div class="file-item">ExampleFile.zip <button>Download</button></div>
+            <div class="file-item">MyPhoto.png <button>Download</button></div>
+        </section>
     </main>
-  </div>
 
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+    <footer>
+        <p>© 2025 FileShare. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert(`Button "${btn.innerText}" clicked!`);
             });
         });
-    });
-
-    // Mobile menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
-  </script>
+    </script>
 </body>
 </html>
