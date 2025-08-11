@@ -3,94 +3,93 @@ body {
     font-family: Arial, sans-serif;
     background-color: #0d0d0d;
     color: white;
+    display: flex;
 }
 
-header {
+.sidebar {
+    width: 200px;
     background-color: #1a1a1a;
     padding: 1rem;
-    text-align: center;
+    border-right: 2px solid #a64dff;
 }
 
-header h1 {
-    margin: 0;
+.sidebar h2 {
     color: #a64dff;
+    margin-bottom: 1rem;
 }
 
-nav {
-    margin-top: 0.5rem;
-}
-
-nav button {
-    background-color: #a64dff;
+.tab-btn {
+    display: block;
+    width: 100%;
+    background: none;
     border: none;
-    padding: 0.5rem 1rem;
-    margin: 0.2rem;
-    border-radius: 5px;
+    text-align: left;
+    padding: 0.5rem;
+    margin: 0.3rem 0;
     cursor: pointer;
     color: white;
+    border-radius: 5px;
 }
 
-nav button:hover {
+.tab-btn:hover {
     background-color: #8a3fcc;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
+    flex-grow: 1;
+    padding: 2rem;
 }
 
-.upload-box, .info-box, .downloads-box {
-    background-color: #1a1a1a;
+.search-box {
+    width: 100%;
+    padding: 0.6rem;
     border: 2px solid #a64dff;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.product-box {
+    background-color: #1a1a1a;
     padding: 1rem;
-    margin: 1rem;
-    width: 80%;
-    max-width: 600px;
+    border: 2px solid #a64dff;
     border-radius: 8px;
+    margin-top: 1rem;
 }
 
 .action-btn {
-    margin-top: 0.5rem;
     background-color: #a64dff;
     border: none;
-    padding: 0.7rem 1.2rem;
+    padding: 0.6rem 1rem;
     border-radius: 5px;
-    color: white;
     cursor: pointer;
+    color: white;
 }
 
 .action-btn:hover {
     background-color: #8a3fcc;
 }
 
-.file-item {
-    display: flex;
-    justify-content: space-between;
+.review {
     background-color: #262626;
-    padding: 0.5rem;
-    margin: 0.3rem 0;
-    border-radius: 5px;
-}
-
-.file-item button {
-    background-color: #a64dff;
-    border: none;
-    padding: 0.3rem 0.8rem;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
-.file-item button:hover {
-    background-color: #8a3fcc;
-}
-
-footer {
-    background-color: #1a1a1a;
-    text-align: center;
     padding: 1rem;
-    margin-top: 2rem;
-    border-top: 1px solid #333;
+    border-radius: 5px;
+    margin: 0.5rem 0;
+}
+
+.discord-link {
+    display: inline-block;
+    background-color: #7289da;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.discord-link:hover {
+    background-color: #5b6eae;
+}
+
+.status.good {
+    color: #4dff88;
 }
