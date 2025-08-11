@@ -3,49 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Share</title>
+    <title>Killem Download</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>FileShare</h1>
-        <nav>
-            <button>Home</button>
-            <button>Upload</button>
-            <button>My Files</button>
-            <button>Contact</button>
-        </nav>
-    </header>
+    <aside class="sidebar">
+        <h2>Menu</h2>
+        <button class="tab-btn" data-tab="home">🏠 Home</button>
+        <button class="tab-btn" data-tab="download">📦 Download</button>
+        <button class="tab-btn" data-tab="reviews">⭐ Reviews</button>
+        <button class="tab-btn" data-tab="support">💬 Support</button>
+        <button class="tab-btn" data-tab="status">📡 Status</button>
+    </aside>
 
     <main>
-        <section class="upload-box">
-            <h2>Upload Your Files</h2>
-            <p>Select files and share them instantly.</p>
-            <input type="file" multiple>
-            <button class="action-btn">Upload</button>
+        <!-- Home Tab -->
+        <section class="tab-content" id="home">
+            <h1>Leading Provider ✨</h1>
+            <p>Top products and software to help you get ahead!</p>
+            <p>Providing the best digital products and software for individuals.</p>
+            <input type="text" placeholder="Search for products..." class="search-box">
         </section>
 
-        <section class="info-box">
-            <h2>How It Works</h2>
-            <p>Upload your files, get a link, and share it anywhere. 
-               Fast, secure, and free.</p>
+        <!-- Download Tab -->
+        <section class="tab-content" id="download" style="display:none;">
+            <h2>Elevate Your Experience ✨</h2>
+            <p>Get the latest version of <b>Killem</b>, the ultimate Roblox external.</p>
+            <div class="product-box">
+                <h3>Centrum.exe</h3>
+                <p><small>8/11/2025, 12:05:02 PM | 2.8 MB</small></p>
+                <button class="action-btn">⬇ Download</button>
+            </div>
         </section>
 
-        <section class="downloads-box">
-            <h2>Recent Downloads</h2>
-            <div class="file-item">ExampleFile.zip <button>Download</button></div>
-            <div class="file-item">MyPhoto.png <button>Download</button></div>
+        <!-- Reviews Tab -->
+        <section class="tab-content" id="reviews" style="display:none;">
+            <h2>User Reviews ⭐</h2>
+            <div class="review">
+                <p>"Fast, easy, and reliable. 5/5 stars!"</p>
+                <small>- Alex</small>
+            </div>
+            <div class="review">
+                <p>"Best Roblox tool out there!"</p>
+                <small>- Jamie</small>
+            </div>
+        </section>
+
+        <!-- Support Tab -->
+        <section class="tab-content" id="support" style="display:none;">
+            <h2>Need Help? 💬</h2>
+            <p>Join our community for fast support.</p>
+            <a class="discord-link" href="https://discord.gg/JN3dCqAW" target="_blank">Join Discord</a>
+        </section>
+
+        <!-- Status Tab -->
+        <section class="tab-content" id="status" style="display:none;">
+            <h2>Service Status 📡</h2>
+            <p>Status: <span class="status good">✅ Undetected</span></p>
+            <p>Currently working on latest Roblox version update.</p>
         </section>
     </main>
 
-    <footer>
-        <p>© 2025 FileShare. All rights reserved.</p>
-    </footer>
-
     <script>
-        document.querySelectorAll('button').forEach(btn => {
+        const buttons = document.querySelectorAll('.tab-btn');
+        const tabs = document.querySelectorAll('.tab-content');
+
+        buttons.forEach(btn => {
             btn.addEventListener('click', () => {
-                alert(`Button "${btn.innerText}" clicked!`);
+                tabs.forEach(tab => tab.style.display = 'none');
+                document.getElementById(btn.dataset.tab).style.display = 'block';
+            });
+        });
+
+        document.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert("Downloading Centrum.exe...");
             });
         });
     </script>
