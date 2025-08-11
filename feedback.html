@@ -6,33 +6,49 @@
   <title>killem - Feedback</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>
-      <div class="container">
-          <a href="index.html" class="logo">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 4.3L20 8.5V15.5L12 19.7L4 15.5V8.5L12 4.3ZM12 13L17 10.5V15.5L12 18L7 15.5V10.5L12 13Z" fill="currentColor"/>
-              </svg>
-              <span>killem</span>
-          </a>
-          <nav>
-              <ul>
-                  <li><a href="index.html#home-section">Home</a></li>
-                  <li><a href="index.html#download-section">Download</a></li>
-                  <li><a href="feedback.html">Feedback</a></li>
-                  <li><a href="status.html">Status</a></li>
-              </ul>
-          </nav>
-          <div class="button-group">
-              <a href="#" class="btn btn-affiliates" data-modal-type="affiliates">Affiliates</a>
-              <a href="#" class="btn btn-login" data-modal-type="login">Login</a>
-              <a href="#" class="cart-icon" aria-label="Shopping Cart" data-modal-type="cart">🛒</a>
-          </div>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 4.3L20 8.5V15.5L12 19.7L4 15.5V8.5L12 4.3ZM12 13L17 10.5V15.5L12 18L7 15.5V10.5L12 13Z" fill="currentColor"/>
+          </svg>
+          <span>killem</span>
+        </a>
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
-  </header>
+      <div class="user-profile">
+        <div class="avatar">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <span class="username">guest4650406363</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <button class="btn btn-add-account" onclick="alert('Add Account functionality coming soon!');">
+        <i class="fas fa-plus"></i> Add Account
+      </button>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="index.html#home-section"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="index.html#download-section"><i class="fas fa-download"></i> Download</a></li>
+          <li><a href="#" onclick="alert('Premium features coming soon!'); return false;"><i class="fas fa-crown"></i> Premium</a></li>
+          <li><a href="#" onclick="alert('API documentation coming soon!'); return false;"><i class="fas fa-cogs"></i> API</a></li>
+          <li><a href="feedback.html" class="active"><i class="fas fa-comment-dots"></i> Feedback</a></li>
+          <li><a href="status.html"><i class="fas fa-info-circle"></i> Status</a></li>
+          <li><a href="#" onclick="alert('Contact us via Discord for now!'); return false;"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </nav>
+      <div class="social-link">
+        <a href="https://discord.gg/JN3dCqAW" target="_blank"><i class="fab fa-discord"></i> @killem_external</a>
+      </div>
+    </aside>
 
-  <main class="page-content">
+    <main class="main-content">
       <section class="hero-section">
           <h1>Give Us Your Feedback</h1>
           <p>We value your input! Please share your thoughts and suggestions to help us improve killem.</p>
@@ -54,117 +70,22 @@
               </form>
           </div>
       </section>
-  </main>
-
-   Custom Modal GUI (copied from index.html for consistency) 
-  <div id="custom-modal" class="modal">
-    <div class="modal-content">
-      <span class="close-button">&times;</span>
-      <div class="modal-header">
-        <img src="/public/images/killem-logo-modal.png" alt="killem Logo" class="modal-logo">
-        <span class="modal-badge">Welcome</span>
-      </div>
-      <div class="modal-body">
-        <h3 id="modal-title">Welcome to killem Services!</h3>
-        <p id="modal-text">Your trusted partner for premium solutions, tailored support, and unmatched reliability. Whether you're here to grow, streamline, or elevate your experience, our team is committed to delivering excellence every step of the way.</p>
-        <div class="discord-link-container">
-          <span id="discord-link-text">discord.gg/JN3dCqAW</span>
-          <button class="copy-button" data-copy-target="discord-link-text">COPY <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 0 0 1-2-2V4a2 0 0 1 2-2h9a2 0 0 1 2 2v1"></path></svg></button>
-        </div>
-        <p class="join-discord-prompt">Join our discord for support and much more!</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" id="modal-okay-button">Okay</button>
-        <button class="btn btn-secondary" id="modal-dismiss-button">Dismiss</button>
-      </div>
-    </div>
+    </main>
   </div>
 
   <script>
-    const modal = document.getElementById('custom-modal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalText = document.getElementById('modal-text');
-    const closeButton = document.querySelector('.close-button');
-    const modalOkayButton = document.getElementById('modal-okay-button');
-    const modalDismissButton = document.getElementById('modal-dismiss-button');
-    const discordLinkText = document.getElementById('discord-link-text');
-    const copyButton = document.querySelector('.copy-button');
-
-    function showModal(type = 'welcome') {
-      // Reset modal content for dynamic updates
-      modalTitle.textContent = 'Welcome to killem Services!';
-      modalText.innerHTML = 'Your trusted partner for premium solutions, tailored support, and unmatched reliability. Whether you\'re here to grow, streamline, or elevate your experience, our team is committed to delivering excellence every step of the way.';
-      discordLinkText.textContent = 'discord.gg/JN3dCqAW';
-      document.querySelector('.discord-link-container').style.display = 'flex';
-      document.querySelector('.join-discord-prompt').style.display = 'block';
-      modalOkayButton.style.display = 'inline-block';
-      modalDismissButton.style.display = 'inline-block';
-
-      if (type === 'affiliates') {
-        modalTitle.textContent = 'Affiliates Program';
-        modalText.textContent = 'Affiliates program details coming soon! Stay tuned for opportunities to partner with us.';
-        document.querySelector('.discord-link-container').style.display = 'none';
-        document.querySelector('.join-discord-prompt').style.display = 'none';
-        modalOkayButton.style.display = 'none';
-      } else if (type === 'login') {
-        modalTitle.textContent = 'Login';
-        modalText.textContent = 'Login functionality coming soon! We are working hard to bring you secure access.';
-        document.querySelector('.discord-link-container').style.display = 'none';
-        document.querySelector('.join-discord-prompt').style.display = 'none';
-        modalOkayButton.style.display = 'none';
-      } else if (type === 'cart') {
-        modalTitle.textContent = 'Shopping Cart';
-        modalText.textContent = 'Your cart is currently empty. Browse our products to add items!';
-        document.querySelector('.discord-link-container').style.display = 'none';
-        document.querySelector('.join-discord-prompt').style.display = 'none';
-        modalOkayButton.style.display = 'none';
-      } else if (type.startsWith('product-')) {
-        modalTitle.textContent = 'Product Information';
-        modalText.textContent = 'Details for this product are coming soon! Please check back later or join our Discord for updates.';
-        document.querySelector('.discord-link-container').style.display = 'none';
-        document.querySelector('.join-discord-prompt').style.display = 'none';
-        modalOkayButton.style.display = 'none';
-      }
-
-      modal.style.display = 'flex'; // Use flex to center
-    }
-
-    closeButton.onclick = function() {
-      modal.style.display = 'none';
-    }
-
-    modalOkayButton.onclick = function() {
-      modal.style.display = 'none';
-    }
-
-    modalDismissButton.onclick = function() {
-      modal.style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
-      }
-    }
-
-    // Copy Discord link to clipboard
-    copyButton.addEventListener('click', function() {
-      const textToCopy = discordLinkText.textContent;
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        copyButton.textContent = 'COPIED!';
-        setTimeout(() => {
-          copyButton.innerHTML = 'COPY <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 0 0 1-2-2V4a2 0 0 1 2-2h9a2 0 0 1 2 2v1"></path></svg>';
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy text: ', err);
-      });
-    });
-
     // Simple form submission alert
     document.querySelector('.feedback-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        showModal('Thank you for your feedback! We appreciate it.');
+        alert('Thank you for your feedback! We appreciate it.');
         this.reset(); // Clear the form
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
     });
   </script>
 </body>
