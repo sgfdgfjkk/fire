@@ -1,95 +1,14 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0d0d0d;
-    color: white;
-    display: flex;
-}
-
-.sidebar {
-    width: 200px;
-    background-color: #1a1a1a;
-    padding: 1rem;
-    border-right: 2px solid #a64dff;
-}
-
-.sidebar h2 {
-    color: #a64dff;
-    margin-bottom: 1rem;
-}
-
-.tab-btn {
-    display: block;
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    padding: 0.5rem;
-    margin: 0.3rem 0;
-    cursor: pointer;
-    color: white;
-    border-radius: 5px;
-}
-
-.tab-btn:hover {
-    background-color: #8a3fcc;
-}
-
-main {
-    flex-grow: 1;
-    padding: 2rem;
-}
-
-.search-box {
-    width: 100%;
-    padding: 0.6rem;
-    border: 2px solid #a64dff;
-    border-radius: 5px;
-    background-color: #1a1a1a;
-    color: white;
-}
-
-.product-box {
-    background-color: #1a1a1a;
-    padding: 1rem;
-    border: 2px solid #a64dff;
-    border-radius: 8px;
-    margin-top: 1rem;
-}
-
-.action-btn {
-    display: inline-block;
-    background-color: #a64dff;
-    padding: 0.6rem 1rem;
-    border-radius: 5px;
-    color: white;
-    text-decoration: none;
-}
-
-.action-btn:hover {
-    background-color: #8a3fcc;
-}
-
-.review {
-    background-color: #262626;
-    padding: 1rem;
-    border-radius: 5px;
-    margin: 0.5rem 0;
-}
-
-.discord-link {
-    display: inline-block;
-    background-color: #7289da;
-    padding: 0.6rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    color: white;
-}
-
-.discord-link:hover {
-    background-color: #5b6eae;
-}
-
-.status.good {
-    color: #4dff88;
-}
+body { display: flex; margin: 0; font-family: Arial, sans-serif; background: #0d0d0d; color: #fff; }
+.sidebar { width: 220px; background: #1a1a1a; padding: 1rem; border-right: 2px solid #a64dff; }
+.sidebar h2 { color: #a64dff; margin-bottom: 1rem; }
+.sidebar nav button { display: block; width: 100%; background: none; border: none; color: #fff; padding: 0.6rem; text-align: left; cursor: pointer; border-radius:5px; margin-bottom: 0.3rem; }
+.sidebar nav button:hover { background: #8a3fcc; }
+main { flex: 1; padding: 2rem; }
+.search { width: 100%; padding: 0.7rem; border: 2px solid #a64dff; border-radius: 5px; background: #1a1a1a; color: #fff; }
+.product { background: #1a1a1a; padding: 1rem; border: 2px solid #a64dff; border-radius: 8px; margin-top: 1rem; }
+.btn { display: inline-block; background: #a64dff; padding: 0.6rem 1.2rem; color: #fff; text-decoration: none; border-radius:5px; }
+.btn:hover { background: #8a3fcc; }
+.review { background: #262626; padding: 1rem; border-radius:5px; margin-bottom: 0.5rem; }
+.discord-link { background: #7289da; padding: 0.6rem 1rem; color: #fff; text-decoration: none; border-radius:5px; }
+.discord-link:hover { background: #5b6eae; }
+.status.good { color: #4dff88; }
