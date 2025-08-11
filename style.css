@@ -58,12 +58,12 @@ main {
 }
 
 .action-btn {
+    display: inline-block;
     background-color: #a64dff;
-    border: none;
     padding: 0.6rem 1rem;
     border-radius: 5px;
-    cursor: pointer;
     color: white;
+    text-decoration: none;
 }
 
 .action-btn:hover {
