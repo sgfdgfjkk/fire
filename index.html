@@ -1,72 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Killem - Roblox External</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download Page</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <aside class="sidebar">
-        <h2>Killem</h2>
+    <header>
+        <div class="logo">G</div>
         <nav>
-            <button class="tab-btn" data-tab="home">🏠 Home</button>
-            <button class="tab-btn" data-tab="download">📦 Download</button>
-            <button class="tab-btn" data-tab="reviews">⭐ Reviews</button>
-            <button class="tab-btn" data-tab="support">💬 Support</button>
-            <button class="tab-btn" data-tab="status">📡 Status</button>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Feedback</a>
+            <a href="#">Status</a>
         </nav>
-    </aside>
+        <div class="auth-buttons">
+            <button class="affiliates">Affiliates</button>
+            <button class="login">Login</button>
+            <button class="cart">🛒</button>
+        </div>
+    </header>
 
-    <main>
-        <!-- Home -->
-        <section class="tab" id="home">
-            <h1>Leading Provider ✨</h1>
-            <p>Top products and software to help you get ahead!</p>
-            <p>Providing the best digital tools for individuals.</p>
-            <input type="text" class="search" placeholder="Search for products...">
-        </section>
-
-        <!-- Download -->
-        <section class="tab" id="download" style="display:none;">
-            <h2>Elevate Your Experience ✨</h2>
-            <p>Get the latest version of <b>Killem</b>, the ultimate Roblox external.</p>
-            <div class="product">
-                <h3>Centrum.exe</h3>
-                <p><small>8/11/2025 • 2.8 MB</small></p>
-                <a class="btn" href="https://gofile.io/d/8oSRw4" target="_blank">⬇ Download</a>
-            </div>
-        </section>
-
-        <!-- Reviews -->
-        <section class="tab" id="reviews" style="display:none;">
-            <h2>User Reviews ⭐</h2>
-            <div class="review"><p>"Fast, easy, and reliable."</p><small>- Alex</small></div>
-            <div class="review"><p>"Best Roblox tool out there!"</p><small>- Jamie</small></div>
-        </section>
-
-        <!-- Support -->
-        <section class="tab" id="support" style="display:none;">
-            <h2>Support</h2>
-            <p>Need help? Join our community:</p>
-            <a class="discord-link" href="https://discord.gg/JN3dCqAW" target="_blank">Join Discord</a>
-        </section>
-
-        <!-- Status -->
-        <section class="tab" id="status" style="display:none;">
-            <h2>Status</h2>
-            <p>Status: <span class="status good">✅ Undetected</span></p>
-            <p>Working on latest Roblox version update.</p>
-        </section>
-    </main>
-
-    <script>
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab').forEach(s => s.style.display = 'none');
-                document.getElementById(btn.dataset.tab).style.display = 'block';
-            });
-        });
-    </script>
+    <section class="intro">
+        <h1>Top products and <span class="highlight">software</span> to help you get ahead!</h1>
+        <p>Providing the best digital products and software for individuals</p>
+        <div class="download-section">
+            <a href="https://gofile.io/d/8oSRw4" target="_blank" class="download-btn">Download</a>
+        </div>
+        <div class="status-box">
+            <p class="status">Killem is undetected on the newest Roblox version</p>
+        </div>
+    </section>
 </body>
 </html>
