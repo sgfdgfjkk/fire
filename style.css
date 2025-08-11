@@ -5,6 +5,8 @@
   --color-light-purple: #c080f0; /* Lighter shade for highlights */
   --color-white: #ffffff;
   --color-text-secondary: #cccccc;
+  --color-red-dark: #8b0000; /* For killem product background */
+  --color-red-light: #ff0000; /* For killem product background */
 }
 
 * {
@@ -220,9 +222,10 @@ main {
 }
 
 .store-section {
-  max-width: 1200px;
+  max-width: 800px; /* Adjusted for single card focus */
   width: 100%;
   margin-top: 50px;
+  padding-bottom: 50px;
 }
 
 .store-section h2 {
@@ -237,83 +240,60 @@ main {
   margin-bottom: 40px;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  padding-bottom: 50px; /* Add some padding at the bottom */
-}
-
-.product-card {
+.product-single-card {
   background-color: var(--color-dark-gray);
   border-radius: 12px;
-  padding: 20px;
+  padding: 30px; /* Increased padding for a more substantial look */
   text-align: left;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.product-card .badge {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background-color: rgba(0, 128, 0, 0.7); /* Green for best seller */
-  color: white;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  z-index: 1;
+  max-width: 400px; /* Constrain width for the single card */
+  margin: 0 auto; /* Center the card */
 }
 
 .product-image {
   width: 100%;
-  height: 150px; /* Placeholder height */
-  background: linear-gradient(45deg, var(--color-purple), #4a0080); /* Purple gradient for placeholder */
+  height: 250px; /* Increased height for better visual */
+  background-size: cover;
+  background-position: center;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   position: relative;
   overflow: hidden;
 }
 
-.product-image::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url("/placeholder.svg?height=150&width=280") no-repeat center center / cover;
-  opacity: 0.7;
+.killem-background {
+  background-image: url("/public/images/killem-product-box.png");
+  background-color: var(--color-red-dark); /* Fallback/base color */
 }
 
-.product-card h3 {
-  font-size: 1.3rem;
+.product-single-card h3 {
+  font-size: 1.8rem; /* Larger font for single product */
   margin-bottom: 10px;
   color: var(--color-white);
 }
 
-.product-card p {
-  font-size: 0.9rem;
+.product-single-card p {
+  font-size: 1rem;
   color: var(--color-text-secondary);
-  margin-bottom: 15px;
-  flex-grow: 1; /* Allows description to take available space */
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
 
-.product-card .price {
-  font-size: 1.2rem;
+.product-single-card .price {
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-purple);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.product-card .btn-primary {
+.product-single-card .btn-primary {
   width: 100%;
-  padding: 10px 15px;
-  font-size: 1rem;
+  padding: 12px 15px;
+  font-size: 1.1rem;
 }
 
 /* Responsive adjustments */
@@ -360,10 +340,6 @@ main {
   .store-section h2 {
     font-size: 2rem;
   }
-
-  .product-grid {
-    grid-template-columns: 1fr; /* Stack cards on small screens */
-  }
 }
 
 @media (max-width: 480px) {
@@ -385,5 +361,11 @@ main {
   }
   .search-bar {
     padding: 8px 15px;
+  }
+  .product-single-card {
+    padding: 20px;
+  }
+  .product-image {
+    height: 200px;
   }
 }
