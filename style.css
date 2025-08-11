@@ -1,151 +1,111 @@
-/* Reset and base styles */
+/* Reset */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Body styles */
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background: linear-gradient(135deg, #74ebd5, #ACB6E5); /* Nice gradient background */
-    color: #fff;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+  color: #fff;
 }
 
 /* Header styles */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: rgba(0,0,0,0.2);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-    letter-spacing: 2px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
 }
 
 nav a {
-    margin-left: 25px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    transition: color 0.3s;
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ffe600; /* Bright accent color on hover */
-}
-
-.auth-buttons button {
-    margin-left: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.affiliates {
-    background-color: #fff;
-    color: #333;
-}
-
-.affiliates:hover {
-    background-color: #f0f0f0;
-}
-
-.login {
-    background-color: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-.login:hover {
-    background-color: #fff;
-    color: #333;
-}
-
-.cart {
-    background-color: transparent;
-    font-size: 18px;
-    color: #fff;
-}
-
-.cart:hover {
-    color: #ffe600;
+  color: #ffd700;
 }
 
 /* Main content styles */
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
 }
 
-.content {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 50px;
-    border-radius: 20px;
-    max-width: 800px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    backdrop-filter: blur(10px);
+.main-section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 50px;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #fff;
+  font-size: 2.4em;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
 p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-    color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #eee;
 }
 
 .download-btn {
-    display: inline-block;
-    padding: 15px 40px;
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #fff;
-    background-color: #ff4b2b;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
+  padding: 15px 40px;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ff4b2b;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .download-btn:hover {
-    background-color: #ff416c;
-    transform: scale(1.05);
+  background-color: #ff416c;
+  transform: scale(1.05);
 }
 
 .status-box {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 15px;
-    display: inline-block;
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: inline-block;
 }
 
 .status {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #00ffcc;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #00ffcc;
 }
