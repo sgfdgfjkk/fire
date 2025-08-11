@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>killem - Roblox External</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+      <div class="container">
+          <div class="logo">
+               Simple placeholder logo icon 
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L2 7V17L12 22L22 17V7L12 2ZM12 4.3L20 8.5V15.5L12 19.7L4 15.5V8.5L12 4.3ZM12 13L17 10.5V15.5L12 18L7 15.5V10.5L12 13Z" fill="currentColor"/>
+              </svg>
+              <span>killem</span>
+          </div>
+          <nav>
+              <ul>
+                  <li><a href="#home-section">Home</a></li>
+                  <li><a href="#download-section">Download</a></li>
+                  <li><a href="#" onclick="alert('Feedback section coming soon! Please use our Discord for now.'); return false;">Feedback</a></li>
+                  <li><a href="#" onclick="alert('Status page coming soon! Check Discord for updates.'); return false;">Status</a></li>
+              </ul>
+          </nav>
+          <div class="button-group">
+              <a href="#" class="btn btn-affiliates" onclick="alert('Affiliates program details coming soon!'); return false;">Affiliates</a>
+              <a href="#" class="btn btn-login" onclick="alert('Login functionality coming soon!'); return false;">Login</a>
+              <a href="#" class="cart-icon" aria-label="Shopping Cart" onclick="alert('Your cart is empty!'); return false;">🛒</a>
+          </div>
+      </div>
+  </header>
+
+  <main>
+      <section id="home-section" class="hero-section">
+          <span class="badge">Leading Provider ✨</span>
+          <h1>Top products and <span class="highlight">software</span> to help you get ahead!</h1>
+          <p>Providing the best digital products and software for individuals</p>
+          <div class="search-bar">
+               Search icon 
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" placeholder="Search for products...">
+          </div>
+          <div class="cta-buttons">
+              <a href="#download-section" class="btn btn-primary">Download Now 📦</a>
+              <a href="https://discord.gg/JN3dCqAW" target="_blank" class="btn btn-secondary">Support 💬</a>
+          </div>
+      </section>
+
+      <section id="download-section" class="store-section">
+          <span class="badge">Elevate Your Experience ✨</span>
+          <h2>killem</h2>
+          <p>The ultimate Roblox external for unparalleled performance.</p>
+          <div class="product-single-card">
+              <div class="product-image killem-background"></div>
+              <h3>killem - Roblox External</h3>
+              <p>Unleash your full potential with killem, designed for seamless integration and superior performance in Roblox. Experience advanced features and a smooth, professional interface.</p>
+              <div class="price">FREE</div>
+              <a href="#" class="btn btn-primary" onclick="alert('Download link coming soon! Join our Discord for updates.'); return false;">Download killem</a>
+          </div>
+      </section>
+  </main>
+
+  <script>
+    // Discord invite pop-up on page load
+    window.onload = function() {
+      alert('Join the Discord now! Here is the invite link: https://discord.gg/JN3dCqAW');
+    };
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+  </script>
+</body>
+</html>
