@@ -9,9 +9,9 @@
 body {
   font-family: 'Arial', sans-serif;
   height: 100vh;
+  background-color: #000; /* Black background */
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #74ebd5, #ACB6E5);
   color: #fff;
 }
 
@@ -21,8 +21,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
+  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 999;
@@ -31,20 +30,14 @@ header {
 .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #fff;
+  color: #9b59b6; /* Purple color */
 }
 
 nav a {
-  margin-left: 20px;
   text-decoration: none;
-  color: #fff;
+  color: #9b59b6; /* Purple */
   font-weight: 500;
   font-size: 16px;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #ffd700;
 }
 
 /* Main content styles */
@@ -56,27 +49,23 @@ main {
   padding: 30px;
 }
 
-.main-section {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 50px;
-  border-radius: 20px;
-  max-width: 800px;
-  width: 100%;
+.content {
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+  max-width: 700px;
+  width: 100%;
+  padding: 40px;
 }
 
 h1 {
-  font-size: 2.4em;
+  font-size: 2.5em;
   margin-bottom: 20px;
-  color: #fff;
+  color: #9b59b6; /* Purple */
 }
 
 p {
   font-size: 1.2em;
   margin-bottom: 30px;
-  color: #eee;
+  color: #ccc;
 }
 
 .download-btn {
@@ -85,21 +74,21 @@ p {
   font-size: 1.3em;
   font-weight: bold;
   color: #fff;
-  background-color: #ff4b2b;
+  background-color: #9b59b6; /* Purple */
   border-radius: 50px;
   text-decoration: none;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .download-btn:hover {
-  background-color: #ff416c;
+  background-color: #8e44ad; /* Slightly darker purple */
   transform: scale(1.05);
 }
 
 .status-box {
   margin-top: 40px;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.2);
+  background-color: #222; /* Dark grey for contrast */
   border-radius: 15px;
   display: inline-block;
 }
@@ -107,5 +96,25 @@ p {
 .status {
   font-size: 1.2em;
   font-weight: bold;
-  color: #00ffcc;
+  color: #00ffcc; /* Cyan for contrast */
+}
+
+.discord-box {
+  margin-top: 30px;
+}
+
+.discord-box a {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #9b59b6;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.discord-box a:hover {
+  background-color: #8e44ad;
+  transform: scale(1.05);
 }
